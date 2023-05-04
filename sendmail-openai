@@ -2,7 +2,7 @@
 # sendmail-apenai
 #
 # Installation instructions
-# https://github.com/VitalPBX/vitalpbx-voicemail-transcription-openai/commit/413fa254db354bb8fd5397da793596ee068a50af
+# https://github.com/VitalPBX/vitalpbx-voicemail-transcription-google-cloud/blob/main/README.md
 #
 # Special thanks to:
 # Original source created by N. Bernaerts: https://github.com/NicolasBernaerts/debian-scripts/tree/master/asterisk
@@ -15,6 +15,8 @@
 # Version History:
 # 2023-05-03  Adapts to work with VitalPBX 4 and OpenAI
 #
+API_KEY=""
+API_URL="https://api.openai.com/v1/audio/transcriptions"
 # set PATH
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
@@ -56,9 +58,6 @@ else
 	dos2unix -o stream.part3.wav.base64
 	base64 -di stream.part3.wav.base64 > stream.part3.wav
 
-	# convert the wav file to flac
-	# sox -G stream.part3.wav --channels=1 --bits=16 --rate=8000 stream.part3.flac
-
 	# convert to MP3
 	sox stream.part3.wav stream.part3-pcm.wav
 	lame -m m -b 24 stream.part3-pcm.wav stream.part3.mp3 
@@ -71,12 +70,12 @@ else
 	cat stream.part3.mp3.base64 >> stream.part3.new
 
 	# convert audio to text and get result
-	RESULT=`curl --request POST --url https://api.openai.com/v1/audio/transcriptions --header 'Authorization: Bearer TOKEN' --header 'Content-Type: multipart/form-data' --form file=@stream.part3.mp3 --form response_format=text --form model=whisper-1`
+	RESULT=`curl --request POST --url $API_URL --header "Authorization: Bearer $API_KEY" --header 'Content-Type: multipart/form-data' --form file=@stream.part3.mp3 --form response_format=text --form model=whisper-1`
 	 	   
 	# generate first part of mail body, converting it to LF only
 	mv stream.part stream.new
 	cat stream.part1 >> stream.new
-	sed '$d' < stream.part2 >> stream.new
+	cat stream.part2 >> stream.new
 
 	# beginning of transcription section
 	echo "" >> stream.new
@@ -89,9 +88,6 @@ else
 	else
 	  echo "$RESULT" >> stream.new
 	fi
-
-	# end of message body
-	tail -1 stream.part2 >> stream.new
 
 	# add converted attachment  
 	cat stream.part3.new >> stream.new
