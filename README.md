@@ -13,13 +13,14 @@ Download the sendmail-gcloud file and copy it to /usr/sbin/
 wget https://raw.githubusercontent.com/VitalPBX/vitalpbx-voicemail-transcription-openai/main/sendmail-openai /usr/sbin/
 </pre>
 
-Edit the file /usr/sbin/sendmail-openai and replace in line 74 the TOKEN with the API Key that OpenAI gives us.
+Edit the /usr/sbin/sendmail-openai file and configure the API_KEY and the API_URL that OpenAI generated for us.
 <pre>
 nano /usr.sbin/sendmail-openai
 </pre>
 
 <pre>
-RESULT=`curl --request POST --url https://api.openai.com/v1/audio/transcriptions --header 'Authorization: Bearer TOKEN' --header 'Content-Type: multipart/form-data' --form file=@stream.part3.mp3 --form response_format=text --form model=whisper-1`
+API_KEY=""
+API_URL="https://api.openai.com/v1/audio/transcriptions"
 </pre>
 
 Later we create the file voicemail__60-general.conf in /etc/Asterisk/vitalpbx/ with the following content.
