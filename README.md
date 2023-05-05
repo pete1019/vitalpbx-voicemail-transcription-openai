@@ -7,6 +7,13 @@ Next we show the steps to follow to send the Voicemail with the transcription of
 - Create OpenAI API Key
 - Have root access to the VitalPBX Server
 
+## Create OpenAI API Key
+In order to create an API key in OpenAI, you need to have an account with a registered payment method. If you already have this, the next step is to go to the url:
+<pre>
+https://platform.openai.com/
+</pre>
+And with your OpenAI credentials you log in and in your account (upper right corner), select Manage account/API keys, and proceed to create API key. We copied it to use later.
+
 ## Instalation
 Download the sendmail-gcloud file and copy it to /usr/sbin/
 <pre>
