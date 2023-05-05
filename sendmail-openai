@@ -2,7 +2,7 @@
 # sendmail-apenai
 #
 # Installation instructions
-# https://github.com/VitalPBX/vitalpbx-voicemail-transcription-google-cloud/blob/main/README.md
+# https://github.com/VitalPBX/vitalpbx-voicemail-transcription-openai/blob/main/README.md
 #
 # Special thanks to:
 # Original source created by N. Bernaerts: https://github.com/NicolasBernaerts/debian-scripts/tree/master/asterisk
@@ -13,7 +13,7 @@
 # License: There are no explicit license terms on the original script or on the blog post with modifications
 #          I'm assumig GNU/GPL2+ unless notified otherwise by copyright holder(s)
 # Version History:
-# 2023-05-03  Adapts to work with VitalPBX 4 and OpenAI
+# 2023-05-04  Adapts to work with VitalPBX 4 and OpenAI
 #
 API_KEY=""
 API_URL="https://api.openai.com/v1/audio/transcriptions"
