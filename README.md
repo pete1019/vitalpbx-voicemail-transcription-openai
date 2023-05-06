@@ -22,7 +22,7 @@ wget https://raw.githubusercontent.com/VitalPBX/vitalpbx-voicemail-transcription
 
 We edit the /usr/sbin/sendmail-openai file and add the API Key that we copied earlier.
 <pre>
-nano /usr.sbin/sendmail-openai
+nano /usr/sbin/sendmail-openai
 </pre>
 
 <pre>
