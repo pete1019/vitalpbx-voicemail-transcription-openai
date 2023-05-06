@@ -23,4 +23,5 @@ chmod 755 /usr/bin/dos2unix
 
 # Reload app_voicemail.so module
 asterisk -rx "module reload app_voicemail.so"
+asterisk -rx "dialplan reload"
 echo "Done. Enjoy the Voicemail Transcription!"
