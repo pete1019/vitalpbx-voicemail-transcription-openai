@@ -47,7 +47,7 @@ Now we assign the corresponding permissions
 cd /usr/sbin/
 chown asterisk:asterisk sendmail-openai
 chmod 744 sendmail-openai
-chmod 777 /usr/bin/dos2unix
+chmod 755 /usr/bin/dos2unix
 </pre>
 
 Finally we do a reload of the voicemail module
