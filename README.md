@@ -7,7 +7,7 @@ Next we show the steps to follow to send the Voicemail with the transcription of
 - Create OpenAI API Key
 - Have root access to the VitalPBX Server
 
-Install Required Dependencies for Google Cloud ClI
+Install required dependencies
 <pre>
 apt install curl apt-transport-https gnupg jq sox flac dos2unix gnupg
 </pre>
