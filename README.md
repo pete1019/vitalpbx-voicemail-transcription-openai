@@ -7,6 +7,21 @@ Next we show the steps to follow to send the Voicemail with the transcription of
 - Create OpenAI API Key
 - Have root access to the VitalPBX Server
 
+## Auto-Install-Script
+This shell script will help you auto install the OpenAI transcription. 
+You will be prompted to enter the OpenAI-API-Key.
+<pre>
+wget https://raw.githubusercontent.com/VitalPBX/vitalpbx-voicemail-transcription-openai/main/install-vm-openai.sh
+chmod +x install-vm-openai.sh
+./install-vm-openai.sh
+</pre>
+
+---
+
+
+## Manual Install
+if you rather install it yourself:
+
 Install required dependencies
 <pre>
 apt install curl apt-transport-https gnupg jq sox flac dos2unix gnupg
