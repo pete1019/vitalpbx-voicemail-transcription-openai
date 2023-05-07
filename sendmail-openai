@@ -79,12 +79,12 @@ else
 
 	# beginning of transcription section
 	echo "" >> stream.new
-	echo "--- OpenAI transcription result ---" >> stream.new
+	echo "--- OpenAI Transcription ---" >> stream.new
 
 	# append result of transcription
 	if [ -z "$RESULT" 	]
 	then
-	  echo "(OpenAI was unable to recognize any speech in audio data.)" >> stream.new
+	  echo "--- OpenAI was unable to recognize any speech in audio data ---" >> stream.new
 	else
 	  echo "$RESULT" >> stream.new
 	fi
